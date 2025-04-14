@@ -16,7 +16,7 @@ public class User {
     @NotBlank()
     @Size(min = 3, max = 25 , message = "Name should be between 3-25 characters")
     @Column(nullable = false)
-    private String name;
+    private String username;
 
     @NotBlank()
     @Size(min = 5,message = "email shouldnot less than r characters" )
@@ -34,9 +34,9 @@ public class User {
     public User() {
     }
 
-    public User(int id, String name, String email, String password, String phone) {
+    public User(int id, String username, String email, String password, String phone) {
         this.id = id;
-        this.name = name;
+        this.username = username;
         this.email = email;
         this.password = password;
         this.phone = phone;
@@ -50,12 +50,12 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String name) {
+        this.username = name;
     }
 
     public String getEmail() {
@@ -87,7 +87,7 @@ public class User {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
         return id == user.id
-                && Objects.equals(name, user.name)
+                && Objects.equals(user, user.username)
                 && Objects.equals(email, user.email)
                 && Objects.equals(password, user.password)
                 && Objects.equals(phone, user.phone);
@@ -95,14 +95,14 @@ public class User {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, email, password, phone);
+        return Objects.hash(id, username, email, password, phone);
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", name='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", phone='" + phone + '\'' +

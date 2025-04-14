@@ -4,10 +4,10 @@ import io.github.grihithreddy.onlinecoursemanagement.user.exception.UserNotFound
 import io.github.grihithreddy.onlinecoursemanagement.user.exception.UserValidationException;
 import io.github.grihithreddy.onlinecoursemanagement.user.model.User;
 import io.github.grihithreddy.onlinecoursemanagement.user.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service("databaseUserService")
 public class DatabaseUserService  implements UserService {
     private final UserRepository userRepository;
 
@@ -20,7 +20,7 @@ public class DatabaseUserService  implements UserService {
 
     @Override
     public User createUser(User user) throws UserValidationException {
-        if(user==null){
+        if(user ==null){
             throw new UserValidationException("User is null");
         }
         return userRepository.save(user);
@@ -47,7 +47,7 @@ public class DatabaseUserService  implements UserService {
         if(newName==null||newName.isEmpty()){
             throw new UserValidationException("Name is null or empty");
         }
-        user.setName(newName);
+        user.setUsername(newName);
         return userRepository.save(user);
     }
 

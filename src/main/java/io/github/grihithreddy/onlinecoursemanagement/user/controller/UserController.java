@@ -1,7 +1,7 @@
 package io.github.grihithreddy.onlinecoursemanagement.user.controller;
 
-import io.github.grihithreddy.onlinecoursemanagement.user.service.UserService;
 import io.github.grihithreddy.onlinecoursemanagement.user.model.User;
+import io.github.grihithreddy.onlinecoursemanagement.user.service.UserService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
